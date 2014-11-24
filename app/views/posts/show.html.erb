@@ -60,6 +60,9 @@
     Street Parking: <%= @post.street_parking %>
   </p>
 
+  <% @images.each do |image| %>
+    <%= image_tag image.url, class: "thumbnail" %>
+  <% end %>
 
 
   <%= link_to 'Edit', edit_post_path(@post) %> |

@@ -31,6 +31,8 @@ namespace :scraper do
     # puts result["postings"].first["heading"]
     # puts result["postings"].first["location"]["locality"]
     # puts JSON.pretty_generate result["postings"].first["annotations"]
+    # puts JSON.pretty_generate result["postings"].first["images"]
+    # puts result["postings"].first["images"].first["full"]
     # puts result["postings"].first["annotations"]["sqft"]
     # puts result["postings"].first["annotations"]["bedrooms"]
 
@@ -54,6 +56,14 @@ namespace :scraper do
 
       # Save Post
       @post.save
+
+      # Loop through images and save to Image database
+      posting["images"].each do |image|
+        @image = Image.new
+        @image.url = image["full"]
+        @image.post_id = @post.id
+        @image.save
+      end 
     end
   end
 
