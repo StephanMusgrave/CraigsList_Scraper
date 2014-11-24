@@ -1,34 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Heading:</strong>
-  <%= @post.heading %>
-</p>
+<div class = "container">
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+  <p>
+    <strong>Heading:</strong>
+    <%= @post.heading %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
-</p>
+  <p>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </p>
 
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @post.neighborhood %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @post.price %>
+  </p>
 
-<p>
-  <strong>External url:</strong>
-  <%= @post.external_url %>
-</p>
+  <p>
+    <strong>Neighborhood:</strong>
+    <%= @post.neighborhood %>
+  </p>
 
-<p>
-  <strong>Timestamp:</strong>
-  <%= @post.timestamp %>
-</p>
+  <p>
+    <strong>External url:</strong>
+    <%= @post.external_url %>
+  </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <p>
+    <strong>Timestamp:</strong>
+    <%= @post.timestamp %>
+  </p>
+
+  <p>
+    Bedrooms: <%= @post.bedrooms %>
+  </p>
+
+  <p>
+    Bathrooms: <%= @post.bathrooms %>
+  </p>
+
+  <p>
+    Square footage: <%= @post.sqft %>
+  </p>
+
+  <p>
+    Cats allowed: <%= @post.cats %>
+  </p>
+
+  <p>
+    Dogs allowed: <%= @post.dogs %>
+  </p>
+
+  <p>
+    Washer/Dryer in property: <%= @post.w_d_in_unit %>
+  </p>
+
+  <p>
+    Street Parking: <%= @post.street_parking %>
+  </p>
+
+
+
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>

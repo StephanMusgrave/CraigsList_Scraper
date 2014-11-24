@@ -49,7 +49,7 @@ namespace :scraper do
       @post.sqft      = posting["annotations"]["sqft"]      if posting["annotations"]["sqft"].present?
       @post.cats      = posting["annotations"]["cats"]      if posting["annotations"]["cats"].present?
       @post.dogs      = posting["annotations"]["dogs"]      if posting["annotations"]["dogs"].present?
-      @post.w_in_unit = posting["annotations"]["w_in_unit"] if posting["annotations"]["w_in_unit"].present?
+      @post.w_d_in_unit = posting["annotations"]["w_d_in_unit"] if posting["annotations"]["w_d_in_unit"].present?
       @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
 
       # Save Post
