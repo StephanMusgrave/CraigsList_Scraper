@@ -30,6 +30,9 @@ namespace :scraper do
     # Display results to screen
     # puts result["postings"].first["heading"]
     # puts result["postings"].first["location"]["locality"]
+    # puts JSON.pretty_generate result["postings"].first["annotations"]
+    # puts result["postings"].first["annotations"]["sqft"]
+    # puts result["postings"].first["annotations"]["bedrooms"]
 
     # Store results in a database
     result["postings"].each do |posting|
@@ -41,13 +44,22 @@ namespace :scraper do
       @post.neighborhood = posting["location"]["locality"]
       @post.external_url = posting["external_url"]
       @post.timestamp = posting["timestamp"]
+      @post.bedrooms  = posting["annotations"]["bedrooms"]  if posting["annotations"]["bedrooms"].present?
+      @post.bathrooms = posting["annotations"]["bathrooms"] if posting["annotations"]["bathrooms"].present?
+      @post.sqft      = posting["annotations"]["sqft"]      if posting["annotations"]["sqft"].present?
+      @post.cats      = posting["annotations"]["cats"]      if posting["annotations"]["cats"].present?
+      @post.dogs      = posting["annotations"]["dogs"]      if posting["annotations"]["dogs"].present?
+      @post.w_in_unit = posting["annotations"]["w_in_unit"] if posting["annotations"]["w_in_unit"].present?
+      @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
+
       # Save Post
       @post.save
     end
   end
 
-  desc "TODO"
+  desc "Destry all posting data"
   task destroy_all_posts: :environment do
+    Post.destroy_all
   end
 
 end
