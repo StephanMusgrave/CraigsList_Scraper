@@ -105,8 +105,6 @@ namespace :scraper do
       @location.name = location["short_name"]
       @location.save
     end
-
-    
   end
 
 end
