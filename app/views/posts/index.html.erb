@@ -5,7 +5,7 @@
         <th>Heading</th>
         <th>Price</th>
         <th>Neighbourhood</th>
-        <th>Last updated</th>
+        <th>Last updated  </th>
       </tr>
     </thead>
 
@@ -20,9 +20,12 @@
       <% end %>
     </tbody>
   </table>
-<br>
 
-<%= link_to 'New Post', new_post_path %>
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  
+  <br>
+
+  <%= link_to 'New Post', new_post_path %>
 
  </div>
 

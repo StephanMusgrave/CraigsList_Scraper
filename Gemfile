@@ -15,4 +15,5 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
-
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
