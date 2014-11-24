@@ -1,4 +1,5 @@
 namespace :scraper do
+  
   desc "Fetch Craigslist posts from 3taps"
   task scrape: :environment do
     require 'open-uri'
