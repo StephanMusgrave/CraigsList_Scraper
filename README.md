@@ -1,12 +1,13 @@
 # craigslist_scraper
 
-A project to develop scraperfollowing a [BaseRails] course.
+A project to develop an apartment rental site like Craigslist, following a [BaseRails] course.
 
-![](public/etsydemo_.png)
+![](public/?????.png)
 
 ## Learning Objectives
 - To build an apartment rental site like Craigslist
-Learn to use an API to scrape Craigslist apartment rental data. Build a beautiful web app to display live listings with filters.
+- Learn to use an API to scrape Craigslist apartment rental data. 
+- Build a beautiful web app to display live listings with filters.
 
 ## How to run it
 ```sh
@@ -28,6 +29,8 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Ruby on Rails 4.1.1        |Model View Controller Framework |
 |Heroku                     |Deployment: [App on Heroku]     |
 |Sqlite3                    |SQL Database for development    |
+|3taps API [3taps]          |                                |
+|                           |                                |
 |Postgrsql                  |SQL Database for deployment     |
 |Devise                     |Enabling users and admins       |
 |Dropbox                    |Bulk image hosting              |
@@ -42,7 +45,6 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Javascript                 |animations for alerts and checking payment forms |
 
 
-
 ## Developed by
 
 [Steve Musgrave]
@@ -52,3 +54,4 @@ Click here to open the web page on Heroku: [App on Heroku]
 [Steve Musgrave]:https://github.com/StephanMusgrave
 [App on Heroku]:http://?????????????.herokuapp.com/
 [BaseRails]:https://www.baserails.com/
+[3taps]:https://developer.3taps.com
