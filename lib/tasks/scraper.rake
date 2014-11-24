@@ -67,9 +67,46 @@ namespace :scraper do
     end
   end
 
-  desc "Destry all posting data"
+  desc "Destroy all posting data"
   task destroy_all_posts: :environment do
     Post.destroy_all
+  end
+  
+  desc "Save neighbourhood codes in a reference table"
+  task scrape_neighbourhoods: :environment do
+    require 'open-uri'
+    require 'JSON'
+
+    # set API token and URL
+    auth_token = "b6ae9b063b9409eb915ab1c32b30ad62"
+    location_url = "http://reference.3taps.com/locations"
+
+    # Specify request parameters
+    params = {
+      auth_token: auth_token,
+      level: "locality",
+      city: "USA-NYM-BRL"
+    }
+
+    # Prepare API request
+    uri = URI.parse(location_url)
+    uri.query = URI.encode_www_form(params)
+
+    # Submit request
+    result = JSON.parse(open(uri).read)
+
+    # Display results to screen
+    # puts JSON.pretty_generate result
+
+    # Store results in a database
+    result["locations"].each do |location|
+      @location = Location.new
+      @location.code = location["code"]
+      @location.name = location["short_name"]
+      @location.save
+    end
+
+    
   end
 
 end
