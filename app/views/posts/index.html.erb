@@ -9,24 +9,34 @@
     <table class="table table-hover table-condensed">
       <thead>
         <tr>
-          <th>Heading</th>
-          <th>Price</th>
-          <th>Beds</th>
-          <th>Baths</th>
-          <th>Neighbourhood</th>
-          <th>Last updated  </th>
+          <th class="centre">Preview</th>
+          <th class="centre" width="45%">Heading</th>
+          <th class="centre">Price</th>
+          <th class="centre">Beds</th>
+          <th class="centre">Baths</th>
+          <th class="centre">Neighbourhood</th>
+          <th class="centre">Last updated  </th>
         </tr>
       </thead>
 
       <tbody>
         <% @posts.each do |post| %>
           <tr>
-            <td><%= link_to post.heading, post %></td>
-            <td><%= number_to_currency(post.price, precision: 0) %></td>
-            <td><%= post.bedrooms %></td>
-            <td><%= post.bathrooms %></td>
-            <td><%= post.neighborhood %></td>
-            <td><%= "#{time_ago_in_words(Time.at(post.timestamp.to_i))} ago" %></td>
+            <td width="13%" height="120px">
+              <%= link_to post_path(post) do %>
+                <% if post.images.empty? %>
+                  <%= image_tag "http://www.eastbaymodern.com/idx/img/no-image.gif", class: "thumbnail"  %>
+                <% else %>
+                  <%= image_tag post.images.first.url, class: "thumbnail" %>
+                <% end %>
+              <% end %>
+            </td>
+            <td style="vertical-align:middle"><%= link_to post.heading, post %></td>
+            <td style="vertical-align:middle" class="centre"><%= number_to_currency(post.price, precision: 0) %></td>
+            <td style="vertical-align:middle" class="centre"><%= post.bedrooms %></td>
+            <td style="vertical-align:middle" class="centre"><%= post.bathrooms %></td>
+            <td style="vertical-align:middle" class="centre"><%= post.neighborhood %></td>
+            <td style="vertical-align:middle" class="centre"><%= "#{time_ago_in_words(Time.at(post.timestamp.to_i))} ago" %></td>
           </tr
         <% end %>
       </tbody>
