@@ -1,4 +1,38 @@
 <div class = "container">
+  <div class="filter">
+    <%=  form_tag posts_path, method: :get do %>
+      <%=  label_tag :bedrooms %>
+      <%=  text_field_tag :bedrooms, params[:bedrooms] %>
+      
+      <%=  label_tag :bathrooms %>
+      <%=  text_field_tag :bathrooms, params[:bathrooms] %>
+            
+      <%=  label_tag :neighborhood %>
+      <%=  text_field_tag :neighborhood, params[:neighborhood] %>
+            
+      <%=  label_tag :price %>
+      <%=  text_field_tag :price, params[:price] %>
+            
+      <%=  label_tag :sqft %>
+      <%=  text_field_tag :sqft, params[:sqft] %>
+            
+      <%=  label_tag :cats %>
+      <%=  text_field_tag :cats, params[:cats] %>
+            
+      <%=  label_tag :dogs %>
+      <%=  text_field_tag :dogs, params[:dogs] %>
+            
+      <%=  label_tag :w_in_unit %>
+      <%=  text_field_tag :w_in_unit, params[:w_in_unit] %>
+            
+      <%=  label_tag :street_parking %>
+      <%=  text_field_tag :street_parking, params[:street_parking] %>
+            
+      <%=  submit_tag "Search", name: nil %>
+    <% end %>
+    
+  </div>
+
   <table class="table table-hover table-condensed">
     <thead>
       <tr>

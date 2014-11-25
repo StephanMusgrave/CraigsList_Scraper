@@ -40,9 +40,9 @@ namespace :scraper do
     result["postings"].each do |posting|
       # Create new Post
       @post = Post.new
-      @post.heading = posting["heading"]
-      @post.body = posting["body"]
-      @post.price = posting["price"]
+      @post.heading   = posting["heading"]
+      @post.body      = posting["body"]
+      @post.price     = posting["price"]
       @post.neighborhood = Location.find_by(code: posting["location"]["locality"]).try(:name)
       @post.external_url = posting["external_url"]
       @post.timestamp = posting["timestamp"]
@@ -51,7 +51,7 @@ namespace :scraper do
       @post.sqft      = posting["annotations"]["sqft"]      if posting["annotations"]["sqft"].present?
       @post.cats      = posting["annotations"]["cats"]      if posting["annotations"]["cats"].present?
       @post.dogs      = posting["annotations"]["dogs"]      if posting["annotations"]["dogs"].present?
-      @post.w_d_in_unit = posting["annotations"]["w_d_in_unit"] if posting["annotations"]["w_d_in_unit"].present?
+      @post.w_d_in_unit    = posting["annotations"]["w_d_in_unit"] if posting["annotations"]["w_d_in_unit"].present?
       @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
 
       # Save Post
