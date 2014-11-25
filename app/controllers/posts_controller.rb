@@ -8,8 +8,10 @@ class PostsController < ApplicationController
     @posts = @posts.where(bedrooms: params["bedrooms"]) if params["bedrooms"].present?
     @posts = @posts.where(bathrooms: params["bathrooms"]) if params["bathrooms"].present?
     @posts = @posts.where(neighborhood: params["neighborhood"]) if params["neighborhood"].present?
-    @posts = @posts.where(price: params["price"]) if params["price"].present?
-    @posts = @posts.where(sqft: params["sqft"]) if params["sqft"].present?
+    @posts = @posts.where("price > ?", params["min_price"]) if params["min_price"].present?
+    @posts = @posts.where("price < ?", params["max_price"]) if params["max_price"].present?
+    @posts = @posts.where("sqft > ?", params["min_sqft"]) if params["min_sqft"].present?
+    @posts = @posts.where("sqft < ?", params["max_sqft"]) if params["max_sqft"].present?
     @posts = @posts.where(cats: params["cats"]) if params["cats"].present?
     @posts = @posts.where(dogs: params["dogs"]) if params["dogs"].present?
     @posts = @posts.where(w_in_unit: params["w_in_unit"]) if params["w_in_unit"].present?

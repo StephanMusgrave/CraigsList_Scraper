@@ -7,26 +7,32 @@
       <%=  label_tag :bathrooms %>
       <%=  text_field_tag :bathrooms, params[:bathrooms] %>
             
-      <%=  label_tag :neighborhood %>
-      <%=  text_field_tag :neighborhood, params[:neighborhood] %>
+      <%=  label_tag :neighbourhood %>
+      <%=  select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), { include_blank: true }) %>
             
-      <%=  label_tag :price %>
-      <%=  text_field_tag :price, params[:price] %>
+      <%=  label_tag :min_price %>
+      <%=  text_field_tag :min_price, params[:min_price] %>
             
-      <%=  label_tag :sqft %>
-      <%=  text_field_tag :sqft, params[:sqft] %>
+      <%=  label_tag :max_price %>
+      <%=  text_field_tag :max_price, params[:max_price] %>
+            
+      <%=  label_tag :min_sqft %>
+      <%=  text_field_tag :min_sqft, params[:min_sqft] %>
+            
+      <%=  label_tag :max_sqft %>
+      <%=  text_field_tag :max_sqft, params[:max_sqft] %>
             
       <%=  label_tag :cats %>
-      <%=  text_field_tag :cats, params[:cats] %>
+      <%=  check_box_tag :cats, "YES", params[:cats] %>
             
       <%=  label_tag :dogs %>
-      <%=  text_field_tag :dogs, params[:dogs] %>
+      <%=  check_box_tag :dogs, "YES", params[:dogs] %>
             
-      <%=  label_tag :w_in_unit %>
-      <%=  text_field_tag :w_in_unit, params[:w_in_unit] %>
+      <%=  label_tag :washer_d_in_unit %>
+      <%=  check_box_tag :w_d_in_unit, "YES", params[:w_d_in_unit] %>
             
       <%=  label_tag :street_parking %>
-      <%=  text_field_tag :street_parking, params[:street_parking] %>
+      <%=  check_box_tag :street_parking, "YES", params[:street_parking] %>
             
       <%=  submit_tag "Search", name: nil %>
     <% end %>

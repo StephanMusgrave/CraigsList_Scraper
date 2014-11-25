@@ -30,7 +30,7 @@ namespace :scraper do
     # Display results to screen
     # puts result["postings"].first["heading"]
     # puts result["postings"].first["location"]["locality"]
-    # puts JSON.pretty_generate result["postings"].first["annotations"]
+    # puts JSON.pretty_generate result["postings"]
     # puts JSON.pretty_generate result["postings"].first["images"]
     # puts result["postings"].first["images"].first["full"]
     # puts result["postings"].first["annotations"]["sqft"]
@@ -40,18 +40,18 @@ namespace :scraper do
     result["postings"].each do |posting|
       # Create new Post
       @post = Post.new
-      @post.heading   = posting["heading"]
-      @post.body      = posting["body"]
-      @post.price     = posting["price"]
-      @post.neighborhood = Location.find_by(code: posting["location"]["locality"]).try(:name)
-      @post.external_url = posting["external_url"]
-      @post.timestamp = posting["timestamp"]
-      @post.bedrooms  = posting["annotations"]["bedrooms"]  if posting["annotations"]["bedrooms"].present?
-      @post.bathrooms = posting["annotations"]["bathrooms"] if posting["annotations"]["bathrooms"].present?
-      @post.sqft      = posting["annotations"]["sqft"]      if posting["annotations"]["sqft"].present?
-      @post.cats      = posting["annotations"]["cats"]      if posting["annotations"]["cats"].present?
-      @post.dogs      = posting["annotations"]["dogs"]      if posting["annotations"]["dogs"].present?
-      @post.w_d_in_unit    = posting["annotations"]["w_d_in_unit"] if posting["annotations"]["w_d_in_unit"].present?
+      @post.heading        = posting["heading"]
+      @post.body           = posting["body"]
+      @post.price          = posting["price"]
+      @post.neighborhood   = Location.find_by(code: posting["location"]["locality"]).try(:name)
+      @post.external_url   = posting["external_url"]
+      @post.timestamp      = posting["timestamp"]
+      @post.bedrooms       = posting["annotations"]["bedrooms"]         if posting["annotations"]["bedrooms"].present?
+      @post.bathrooms      = posting["annotations"]["bathrooms"]        if posting["annotations"]["bathrooms"].present?
+      @post.sqft           = posting["annotations"]["sqft"]             if posting["annotations"]["sqft"].present?
+      @post.cats           = posting["annotations"]["cats"]             if posting["annotations"]["cats"].present?
+      @post.dogs           = posting["annotations"]["dogs"]             if posting["annotations"]["dogs"].present?
+      @post.w_d_in_unit    = posting["annotations"]["w_d_in_unit"]      if posting["annotations"]["w_d_in_unit"].present?
       @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
 
       # Save Post
