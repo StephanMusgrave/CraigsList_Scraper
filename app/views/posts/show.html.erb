@@ -11,13 +11,18 @@
   </div>
 
   <div class="row">
-    <div class="col-md-7">
-        <% @images.each do |image| %>
-          <%= image_tag image.url, class: "thumbnail" %>
+    <div class="col-md-7" id="post-images">
+        <% if @post.images.blank? %>
+          <%= image_tag "http://www.eastbaymodern.com/idx/img/no-image.gif", class: "thumbnail"  %>
+        <% else %>
+          <% @images.each do |image| %>
+            <%= image_tag image.url, class: "thumbnail" %>
+          <% end %>
         <% end %>
-
     </div>
     <div class="col-md-5">
+      <div class="basic-info">
+        <h4>Basic info</h4>
         Price: <%= number_to_currency(@post.price, precision: 0) %><br>
         Last updated: <%= "#{time_ago_in_words(Time.at(@post.timestamp.to_i))} ago" %><br>
         <% if @post.neighborhood.present? %>
@@ -44,9 +49,14 @@
         <% if @post.street_parking.present? %>
           Street Parking: <%= @post.street_parking %>
         <% end %>
+      </div>
+
+      <div class="description">
+        <h4>Description</h4>
         <p>
           <%= @post.body %>
         </p>
+      </div>
     </div>    
   </div>
 </div>
