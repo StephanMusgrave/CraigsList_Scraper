@@ -1,70 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <div class = "container">
+  <div class="header">
+    <h3>
+      <%= @post.heading %>
+    </h3>
+    <p>
+      <%= link_to @post.external_url, @post.external_url %>
+    </p>
+  </div>
 
-  <p>
-    <strong>Heading:</strong>
-    <%= @post.heading %>
-  </p>
+  <div class="row">
+    <div class="col-md-7">
+        <% @images.each do |image| %>
+          <%= image_tag image.url, class: "thumbnail" %>
+        <% end %>
 
-  <p>
-    <strong>Body:</strong>
-    <%= @post.body %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @post.price %>
-  </p>
-
-  <p>
-    <strong>Neighborhood:</strong>
-    <%= @post.neighborhood %>
-  </p>
-
-  <p>
-    <strong>External url:</strong>
-    <%= @post.external_url %>
-  </p>
-
-  <p>
-    <strong>Timestamp:</strong>
-    <%= @post.timestamp %>
-  </p>
-
-  <p>
-    Bedrooms: <%= @post.bedrooms %>
-  </p>
-
-  <p>
-    Bathrooms: <%= @post.bathrooms %>
-  </p>
-
-  <p>
-    Square footage: <%= @post.sqft %>
-  </p>
-
-  <p>
-    Cats allowed: <%= @post.cats %>
-  </p>
-
-  <p>
-    Dogs allowed: <%= @post.dogs %>
-  </p>
-
-  <p>
-    Washer/Dryer in property: <%= @post.w_d_in_unit %>
-  </p>
-
-  <p>
-    Street Parking: <%= @post.street_parking %>
-  </p>
-
-  <% @images.each do |image| %>
-    <%= image_tag image.url, class: "thumbnail" %>
-  <% end %>
-
-
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
+    </div>
+    <div class="col-md-5">
+        Price: <%= number_to_currency(@post.price, precision: 0) %><br>
+        Last updated: <%= "#{time_ago_in_words(Time.at(@post.timestamp.to_i))} ago" %><br>
+        <% if @post.neighborhood.present? %>
+          Neighbourhood: <%= @post.neighborhood %><br>
+        <% end %>
+        <% if @post.bedrooms.present? %>
+          Bedrooms: <%= @post.bedrooms %><br>     
+        <% end %>
+        <% if @post.bathrooms.present? %>
+          Bathrooms: <%= @post.bathrooms %><br>     
+        <% end %>
+        <% if @post.sqft.present? %>
+          Square footage: <%= @post.sqft %><br>     
+        <% end %>
+        <% if @post.cats.present? %>
+          Cats allowed: <%= @post.cats %><br>     
+        <% end %>
+        <% if @post.dogs.present? %>
+          Dogs allowed: <%= @post.dogs %><br>     
+        <% end %>
+        <% if @post.w_d_in_unit.present? %>
+          Washer/Dryer in property: <%= @post.w_d_in_unit %><br>     
+        <% end %>
+        <% if @post.street_parking.present? %>
+          Street Parking: <%= @post.street_parking %>
+        <% end %>
+        <p>
+          <%= @post.body %>
+        </p>
+    </div>    
+  </div>
 </div>
