@@ -132,16 +132,6 @@ namespace :scraper do
     # Submit request
     result = JSON.parse(open(uri).read)
 
-    # Display results to screen
-    # puts result["postings"].first["heading"]
-    # puts result["postings"].first["location"]["locality"]
-    # puts JSON.pretty_generate result["postings"]
-    # puts JSON.pretty_generate result["postings"].first["images"]
-    # puts result["postings"].first["images"].first["full"]
-    # puts result["postings"].first["annotations"]["sqft"]
-    # puts result["postings"].first["annotations"]
-    # puts result["postings"].first["annotations"]["bedrooms"]
-
     result["postings"].each do |posting|
       # Create new Post
       @post = Post.new
@@ -168,10 +158,9 @@ namespace :scraper do
   task discard_old_data: :environment do
     Post.all.each do |post|
       if post.created_at < 6.hours.ago
-        post.destroy_all
+        post.destroy
       end
     end
   end
 
 end
-
