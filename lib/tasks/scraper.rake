@@ -162,13 +162,16 @@ namespace :scraper do
       puts posting["annotations"] if posting["annotations"]["street_parking"].present?
 
     end
-
-
-  
-
   end
 
-
+  desc "Discard old data"
+  task discard_old_data: :environment do
+    Post.all.each do |post|
+      if post.created_at < 6.hours.ago
+        post.destroy_all
+      end
+    end
+  end
 
 end
 
