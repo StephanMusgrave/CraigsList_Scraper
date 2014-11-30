@@ -1,9 +1,8 @@
 namespace :scraper do
-  
   desc "Fetch Craigslist posts from 3taps"
   task scrape: :environment do
     require 'open-uri'
-    require 'JSON'
+    require 'json'
 
     # set API token and URL
     auth_token = "b6ae9b063b9409eb915ab1c32b30ad62"
@@ -30,17 +29,7 @@ namespace :scraper do
       # Submit request
       result = JSON.parse(open(uri).read)
 
-      # Display results to screen
-      # puts result["postings"].first["heading"]
-      # puts result["postings"].first["location"]["locality"]
-      # puts JSON.pretty_generate result["postings"]
-      # puts JSON.pretty_generate result["postings"].first["images"]
-      # puts result["postings"].first["images"].first["full"]
-      # puts result["postings"].first["annotations"]["sqft"]
-      # puts result["postings"].first["annotations"]
-      # puts result["postings"].first["annotations"]["bedrooms"]
-
-      # Store results in a database
+       # Store results in a database
       result["postings"].each do |posting|
         # Create new Post
         @post = Post.new
@@ -69,6 +58,7 @@ namespace :scraper do
           @image.save
         end 
       end
+
       Anchor.first.update(value: result["anchor"])
       puts Anchor.first.value
       break if result["postings"].empty?
@@ -83,7 +73,7 @@ namespace :scraper do
   desc "Save neighbourhood codes in a reference table"
   task scrape_neighbourhoods: :environment do
     require 'open-uri'
-    require 'JSON'
+    require 'json'
 
     # set API token and URL
     auth_token = "b6ae9b063b9409eb915ab1c32b30ad62"
@@ -118,7 +108,7 @@ namespace :scraper do
   desc "Display Craigslist posts from 3taps"
   task display: :environment do
     require 'open-uri'
-    require 'JSON'
+    require 'json'
 
     # set API token and URL
     auth_token = "b6ae9b063b9409eb915ab1c32b30ad62"
