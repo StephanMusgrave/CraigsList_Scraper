@@ -158,10 +158,9 @@ namespace :scraper do
   # 6 hours gives ~100 pages @ 20 posts/page and warning email: 
   # "The database contains 15,558 rows, exceeding the Hobby-dev plan limit of 10,000. "
   task discard_old_data: :environment do
-    Post.all.each do |post|
-      if post.created_at < 3.hours.ago
-        post.destroy
-      end
+    while Post.count > 1000
+      # puts Post.count
+      Post.first.destroy
     end
   end
 
