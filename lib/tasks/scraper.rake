@@ -155,7 +155,7 @@ namespace :scraper do
   end
 
   desc "Discard old data"
-  # 6 hours gives ~100 pages @ 20 posts/page and warning email: 
+  # Heroku: 6 hours gives ~100 pages @ 20 posts/page and warning email: 
   # "The database contains 15,558 rows, exceeding the Hobby-dev plan limit of 10,000. "
   task discard_old_data: :environment do
     while Post.count > 800
@@ -163,5 +163,12 @@ namespace :scraper do
       Post.first.destroy
     end
   end
-
+  
+  desc "Discard local old data"
+  task discard_local_old_data: :environment do
+    while Post.count > 2000
+      puts Post.count
+      Post.first.destroy
+    end
+  end
 end

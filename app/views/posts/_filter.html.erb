@@ -50,15 +50,15 @@
         <%=  check_box_tag :dogs, "YES", params[:dogs] %>
       </div>
       <div class="col-md-2">
-        <%=  label_tag "Washer/Dryer in unit" %>
+        <%=  label_tag "Washer" %>
         <%=  check_box_tag :w_d_in_unit, "YES", params[:w_d_in_unit] %>
       </div>
       <div class="col-md-2">
-        <%=  label_tag :street_parking %>
+        <%=  label_tag :parking %>
         <%=  check_box_tag :street_parking, "YES", params[:street_parking] %>
       </div>
-      <div class="col-md-2">
-        <%=  submit_tag "Search", name: nil, class: "btn btn-primary" %>
+      <div class="col-md-1">
+        <%=  submit_tag "Search   #{Post.count} posts", name: nil, class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
