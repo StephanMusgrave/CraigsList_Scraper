@@ -158,7 +158,7 @@ namespace :scraper do
   # Heroku: 6 hours gives ~100 pages @ 20 posts/page and warning email: 
   # "The database contains 15,558 rows, exceeding the Hobby-dev plan limit of 10,000. "
   task discard_old_data: :environment do
-    while Post.count > 800
+    while Post.count > 700
       # puts Post.count
       Post.first.destroy
     end
