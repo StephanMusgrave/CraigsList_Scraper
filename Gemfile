@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'newrelic_rpm'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 

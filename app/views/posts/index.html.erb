@@ -10,7 +10,8 @@
       <thead>
         <tr>
           <th class="centre">Preview</th>
-          <th class="centre" width="45%">Heading</th>
+          <th class="centre">Images</th>
+          <th class="centre" width="35%">Description</th>
           <th class="centre">Price</th>
           <th class="centre">Beds</th>
           <th class="centre">Baths</th>
@@ -31,6 +32,7 @@
                 <% end %>
               <% end %>
             </td>
+            <td style="vertical-align:middle" class="centre"><%= link_to post.images.count, post %></td>
             <td style="vertical-align:middle"><%= link_to post.heading, post %></td>
             <td style="vertical-align:middle" class="centre"><%= number_to_currency(post.price, precision: 0) %></td>
             <td style="vertical-align:middle" class="centre"><%= post.bedrooms %></td>
