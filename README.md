@@ -2,7 +2,7 @@
 
 A project to develop an apartment rental site like Craigslist, following a [BaseRails] course.
 
-![](public/?????.png)
+![](public/IMG_1456.JPG)
 
 ## Learning Objectives
 - To build an apartment rental site like Craigslist
@@ -29,12 +29,12 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Ruby on Rails 4.1.1        |Model View Controller Framework |
 |Heroku                     |Deployment: [App on Heroku]     |
 |Sqlite3                    |SQL Database for development    |
-|3taps API [3taps]          |                                |
+|3taps API [3taps]          |searches Twitter, Craigslist and other sites for postings |
 |                           |                                |
 |Postgrsql                  |SQL Database for deployment     |
 |Devise                     |Enabling users and admins       |
 |Dropbox                    |Bulk image hosting              |
-|Paperclip                  |A file attachment library for Active Record, used for uploading images|
+|Paperclip                  |A file attachment library for Active Record, used for uploading images |
 |paperclip-dropbox          |extends Paperclip with Dropbox storage|
 |Figaro                     |handling passwords and keys     |
 |HTML5                      |Web Pages                       |
@@ -42,7 +42,10 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Bootstrap                  |Base styling theme              |
 |will_paginate              |Pagination library              |
 |Glypicons                  |for styling links and buttons   |
-|Javascript                 |animations for alerts and checking payment forms |
+|Javascript                 |animations for alerts           |
+|New Relic                  |Real time application monitoring|
+|Papertrail                 |Tracking events & log management|
+
 
 
 ## Developed by
@@ -52,6 +55,6 @@ Click here to open the web page on Heroku: [App on Heroku]
 ## Further work to do
 
 [Steve Musgrave]:https://github.com/StephanMusgrave
-[App on Heroku]:http://?????????????.herokuapp.com/
+[App on Heroku]:https://homefinder-musgrave.herokuapp.com/
 [BaseRails]:https://www.baserails.com/
 [3taps]:https://developer.3taps.com
