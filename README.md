@@ -45,7 +45,7 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Javascript                 |animations for alerts           |
 |New Relic                  |Real time application monitoring|
 |Papertrail                 |Tracking events & log management|
-
+|Google Analytics           |website statistics              |
 
 
 ## Developed by
