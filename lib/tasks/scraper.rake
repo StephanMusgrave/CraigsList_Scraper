@@ -13,10 +13,11 @@ namespace :scraper do
 
       # Specify request parameters
       # anchor: Anchor.first.value,
+      # anchor: 1717423397,
 
       params = {
         auth_token: auth_token,
-        anchor: 1717423397,
+        anchor: Anchor.first.value,
         source: "CRAIG",
         category_group: "RRRR",
         category: "RHFR",
@@ -168,9 +169,38 @@ namespace :scraper do
   
   desc "Discard local old data"
   task discard_local_old_data: :environment do
-    while Post.count > 1990
+    while Post.count > 100
       puts Post.count
       Post.first.destroy
     end
   end
+
+  desc "Send a confirmation email"
+  task confirm_email: :environment do
+    require 'mail'
+    require 'date'
+    Mail.defaults do
+      delivery_method :smtp, { :address   => "smtp.sendgrid.net",
+                               :port      => 587,
+                               :domain    => "stephanmusgrave.com",
+                               :user_name => "stevemusgrave",
+                               :password  => "Sendgrid password here",
+                               :authentication => 'plain',
+                               :enable_starttls_auto => true }
+    end
+
+    mail = Mail.deliver do
+      to 'steve.musgrave@yahoo.co.uk'
+      from 'Steve Musgrave <stephan.musgrave@gmail.com>'
+      subject "Posts: #{Post.count} at: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+      text_part do
+        body 'Hello world in text'
+      end
+      html_part do
+        content_type 'text/html; charset=UTF-8'
+        body '<b>Hello world in HTML</b>'
+      end
+    end
+  end
+
 end
