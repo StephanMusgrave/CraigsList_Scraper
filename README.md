@@ -17,6 +17,12 @@ rails s
 
 ```
 
+## Refresh the data on local
+```
+$ bin/rake scraper:scrape
+$ bin/rake scraper:discard_local_old_data
+```
+
 Heroku
 ----
 Click here to open the web page on Heroku: [App on Heroku]
@@ -30,7 +36,6 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Heroku                     |Deployment: [App on Heroku]     |
 |Sqlite3                    |SQL Database for development    |
 |3taps API [3taps]          |searches Twitter, Craigslist and other sites for postings |
-|                           |                                |
 |Postgrsql                  |SQL Database for deployment     |
 |Devise                     |Enabling users and admins       |
 |Dropbox                    |Bulk image hosting              |

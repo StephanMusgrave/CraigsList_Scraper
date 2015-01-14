@@ -12,9 +12,11 @@ namespace :scraper do
     loop do
 
       # Specify request parameters
+      # anchor: Anchor.first.value,
+
       params = {
         auth_token: auth_token,
-        anchor: Anchor.first.value,
+        anchor: 1717423397,
         source: "CRAIG",
         category_group: "RRRR",
         category: "RHFR",
@@ -166,7 +168,7 @@ namespace :scraper do
   
   desc "Discard local old data"
   task discard_local_old_data: :environment do
-    while Post.count > 2000
+    while Post.count > 1990
       puts Post.count
       Post.first.destroy
     end
