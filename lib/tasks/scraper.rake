@@ -184,21 +184,21 @@ namespace :scraper do
                                :port      => 587,
                                :domain    => "stephanmusgrave.com",
                                :user_name => "stevemusgrave",
-                               :password  => "jaM5Hic4fEd8aR0yic8F",
+                               :password  => "SendGrid Password",
                                :authentication => 'plain',
                                :enable_starttls_auto => true }
     end
 
     mail = Mail.deliver do
-      to 'steve.musgrave@yahoo.co.uk'
+      to 'stephan.musgrave@yahoo.co.uk'
       from 'Steve Musgrave <stephan.musgrave@gmail.com>'
-      subject "There are #{Post.count} posts at: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
+      subject "Homefinder has #{Post.count} posts at: #{Time.now.strftime('%d/%m/%Y %H:%M')}"
       text_part do
-        body 'Post count text version'
+        body 'Post count notification: text version'
       end
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body '<b>Post count HTML version</b>'
+        body '<b>Post count notification: HTML version</b>'
       end
     end
   end

@@ -51,6 +51,7 @@ Click here to open the web page on Heroku: [App on Heroku]
 |New Relic                  |Real time application monitoring|
 |Papertrail                 |Tracking events & log management|
 |Google Analytics           |website statistics              |
+|SendGrid                   |confirmation emails             |
 
 
 ## Developed by
