@@ -1,8 +1,8 @@
-# craigslist_scraper
+# Craigslist Scraper
 
 A project to develop an apartment rental site like Craigslist, following a [BaseRails] course.
 
-![Apartment](public/IMG_1456.JPG)
+![](public/img_1456.jpg)
 
 ## Learning Objectives
 - To build an apartment rental site like Craigslist
