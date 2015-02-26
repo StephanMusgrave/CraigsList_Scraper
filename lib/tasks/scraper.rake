@@ -169,7 +169,7 @@ namespace :scraper do
   
   desc "Discard local old data"
   task discard_local_old_data: :environment do
-    while Post.count > 2000
+    while Post.count > 200
       puts Post.count
       Post.first.destroy
     end
