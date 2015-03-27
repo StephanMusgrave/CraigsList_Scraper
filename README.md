@@ -41,7 +41,6 @@ Click here to open the web page on Heroku: [App on Heroku]
 |Dropbox                    |Bulk image hosting              |
 |Paperclip                  |A file attachment library for Active Record, used for uploading images |
 |paperclip-dropbox          |extends Paperclip with Dropbox storage|
-|Figaro                     |handling passwords and keys     |
 |HTML5                      |Web Pages                       |
 |CSS3                       |Styling                         |
 |Bootstrap                  |Base styling theme              |

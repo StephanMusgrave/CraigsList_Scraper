@@ -60,6 +60,7 @@ namespace :scraper do
           @image.post_id = @post.id
           @image.save
         end 
+        puts Post.count
       end
 
       Anchor.first.update(value: result["anchor"])
@@ -152,8 +153,7 @@ namespace :scraper do
       @post.w_d_in_unit    = posting["annotations"]["w_d_in_unit"]    if posting["annotations"]["w_d_in_unit"].present?
       @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
 
-      puts posting["annotations"] if posting["annotations"]["street_parking"].present?
-
+      puts Post.count
     end
   end
 
